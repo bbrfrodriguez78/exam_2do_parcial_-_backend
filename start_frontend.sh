@@ -1,2 +1,2 @@
 #!/bin/bash
-waitress-serve --port=$PORT frontend:app
+waitress-serve --port=$PORT app:app
