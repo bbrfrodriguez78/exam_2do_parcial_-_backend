@@ -7,7 +7,7 @@ services:
     startCommand: "./start_frontend.sh"
     envVars:
       - key: FLASK_APP
-        value: frontend.py
+        value: app.py
     envVars:
       - key: PORT
         value: 5000
@@ -20,7 +20,7 @@ services:
     startCommand: "./start_backend.sh"
     envVars:
       - key: FLASK_APP
-        value: backend.py
+        value: app.py
     envVars:
       - key: PORT
         value: 5001
