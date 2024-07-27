@@ -1,0 +1,31 @@
+from flask import Flask
+from config import Config
+from models import db
+from routes import bp as ingredients_bp
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS  # Importar Flask-CORS
+
+app = Flask(__name__)
+CORS(app)  # Habilitar CORS en la aplicación Flask
+app backend
+#app.config.from_object(Config)
+
+#db.init_app(app)
+#with app.app_context():
+#    db.create_all()
+
+
+#app.register_blueprint(ingredients_bp, url_prefix='/api')
+
+#if __name__ == '__main__':
+#    app.run(port=5001)
+
+app.config.from_object('config.Config')
+db = SQLAlchemy(app)
+
+# Importar las rutas después de inicializar la aplicación y la base de datos
+from routes import bp
+app.register_blueprint(bp, url_prefix='/api')
+
+if __name__ == '__main__':
+    app.run(port=5001, debug=True)
